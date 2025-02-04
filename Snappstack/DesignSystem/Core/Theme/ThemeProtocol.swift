@@ -18,6 +18,7 @@ public protocol ThemeProtocol {
     
     var black: Color { get }
     var white: Color { get }
+    var background: Color { get }
     
     var accent: Color { get }
     var success: Color { get }

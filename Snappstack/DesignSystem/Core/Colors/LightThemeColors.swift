@@ -18,6 +18,7 @@ public final class LightThemeColors: ThemeProtocol {
     
     public let black: Color
     public let white: Color
+    public let background: Color
     
     public let accent: Color
     public let success: Color
@@ -36,11 +37,12 @@ public final class LightThemeColors: ThemeProtocol {
         textTertiary = Color(.displayP3, red: 0.667, green: 0.667, blue: 0.667, opacity: 1)
         
         fillPrimary = Color(.displayP3, red: 1, green: 1, blue: 1, opacity: 1)
-        fillSecondary = Color(.displayP3, red: 0.98, green: 0.98, blue: 0.98, opacity: 1)
+        fillSecondary = Color(.displayP3, red: 0.96, green: 0.96, blue: 0.96, opacity: 1)
         fill0 = Color(.displayP3, red: 1, green: 1, blue: 1, opacity: 0)
         
         black = Color.black
         white = Color.white
+        background = Color(.displayP3, red: 1, green: 1, blue: 1, opacity: 1)
         
         accent = Color(.displayP3, red: 0.106, green: 0.302, blue: 1.0, opacity: 1.0)
         success = Color(.displayP3, red: 0.2, green: 0.78, blue: 0.35, opacity: 1.0)

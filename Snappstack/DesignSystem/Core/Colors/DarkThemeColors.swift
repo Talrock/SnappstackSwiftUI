@@ -18,6 +18,7 @@ public final class DarkThemeColors: ThemeProtocol {
     
     public let black: Color
     public let white: Color
+    public let background: Color
     
     public let accent: Color
     public let success: Color
@@ -41,6 +42,7 @@ public final class DarkThemeColors: ThemeProtocol {
         
         black = Color.black
         white = Color.white
+        background = Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 1)
         
         accent = Color(.displayP3, red: 0.4, green: 0.557, blue: 1.0, opacity: 1.0)
         success = Color(.displayP3, red: 0.35, green: 0.85, blue: 0.45, opacity: 1.0)

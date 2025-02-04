@@ -18,6 +18,7 @@ struct ColorTokens {
     
     static var black: Color { ThemeProvider.shared.currentTheme.black }
     static var white: Color { ThemeProvider.shared.currentTheme.white }
+    static var background: Color { ThemeProvider.shared.currentTheme.white }
     
     static var accent: Color { ThemeProvider.shared.currentTheme.accent }
     static var success: Color { ThemeProvider.shared.currentTheme.success }

@@ -77,19 +77,19 @@ struct FontTokens {
     // Button specific styles
     struct Button {
         static let large = TextStyle(
-            font: .system(size: 17, weight: .semibold),
+            font: .system(size: 16, weight: .semibold),
             lineHeight: 22,
             letterSpacing: -0.41
         )
         
         static let medium = TextStyle(
-            font: .system(size: 15, weight: .semibold),
+            font: .system(size: 14, weight: .semibold),
             lineHeight: 20,
             letterSpacing: -0.24
         )
         
         static let small = TextStyle(
-            font: .system(size: 13, weight: .semibold),
+            font: .system(size: 12, weight: .semibold),
             lineHeight: 18,
             letterSpacing: -0.08
         )

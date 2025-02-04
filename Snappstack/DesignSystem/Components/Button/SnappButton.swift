@@ -10,7 +10,10 @@ import SwiftUI
 public enum ButtonType {
     case primary
     case secondary
+    case tertiary
     case ghost
+    case appleLogin
+    case googleLogin
 }
 
 public enum ButtonSize {
@@ -24,8 +27,8 @@ extension SnappButton {
     struct Constants {
         struct Height {
             static let large: CGFloat = 52
-            static let medium: CGFloat = 44
-            static let small: CGFloat = 36
+            static let medium: CGFloat = 48
+            static let small: CGFloat = 40
         }
         
         struct Padding {
@@ -34,9 +37,9 @@ extension SnappButton {
         }
         
         struct Icon {
-            static let large: CGFloat = 20
-            static let medium: CGFloat = 16
-            static let small: CGFloat = 14
+            static let large: CGFloat = 22
+            static let medium: CGFloat = 18
+            static let small: CGFloat = 16
         }
     }
 }
@@ -44,31 +47,34 @@ extension SnappButton {
 // SnappButton.swift
 public struct SnappButton: View {
     var title: String
-    var action: (()->())?
     var type: ButtonType
     var size: ButtonSize = .large
     var isEnabled: Bool = true
     var isLoading: Bool = false
+    var isFloating: Bool = false
     var leadingIcon: Image? = nil
     var trailingIcon: Image? = nil
+    var action: (()->())?
     
     public init(
         title: String,
         type: ButtonType = .primary,
         size: ButtonSize = .large,
-        leadingIcon: Image? = nil,
-        trailingIcon: Image? = nil,
         isEnabled: Bool = true,
         isLoading: Bool = false,
+        isFloating: Bool = false,
+        leadingIcon: Image? = nil,
+        trailingIcon: Image? = nil,
         action: (() -> Void)? = nil
     ) {
         self.title = title
         self.type = type
         self.size = size
-        self.leadingIcon = leadingIcon
-        self.trailingIcon = trailingIcon
         self.isEnabled = isEnabled
         self.isLoading = isLoading
+        self.isFloating = isFloating
+        self.leadingIcon = leadingIcon
+        self.trailingIcon = trailingIcon
         self.action = action
     }
     
@@ -80,18 +86,29 @@ public struct SnappButton: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: foregroundColor))
                         .scaleEffect(size == .small ? 0.8 : 1.0)
                 } else {
+                   
                     if let leadingIcon = leadingIcon {
-                        leadingIcon
-                            .font(.system(size: iconSize))
-                            .foregroundColor(foregroundColor)
+                        if type == .appleLogin {
+                            leadingIcon
+                                .font(.system(size: iconSize))
+                                .foregroundColor(foregroundColor)
+                        } else if type == .googleLogin {
+                            leadingIcon
+                                .font(.system(size: iconSize))
+                        } else {
+                            leadingIcon
+                                .font(.system(size: iconSize))
+                                .foregroundColor(foregroundColor)
+                        }
                     }
                     
                     Text(title)
                         .font(textStyle.font)
-//                        .lineHeight(textStyle.lineHeight)
-//                        .letterSpacing(textStyle.letterSpacing)
+                        .underline(type == .ghost)
                         .foregroundColor(foregroundColor)
                     
+                    //                        .lineHeight(textStyle.lineHeight)
+                    //                        .letterSpacing(textStyle.letterSpacing)
                     if let trailingIcon = trailingIcon {
                         trailingIcon
                             .font(.system(size: iconSize))
@@ -99,11 +116,11 @@ public struct SnappButton: View {
                     }
                 }
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: buttonHeight)
+            .frame(maxWidth: isFloating ? nil : .infinity)
+            .frame(height: type == .ghost ? Constants.Height.small : buttonHeight)
             .background(backgroundColor)
             .cornerRadius(RadiusTokens.md)
-            .opacity(isEnabled ? OpacityTokens.opacity100 : OpacityTokens.opacity40)
+            .opacity(isEnabled ? OpacityTokens.opacity100 : OpacityTokens.opacity50)
             .overlay(
                 borderStyle
             )
@@ -140,10 +157,14 @@ public struct SnappButton: View {
         switch type {
         case .primary:
             return ColorTokens.accent
-        case .secondary:
+        case .secondary, .googleLogin:
             return ColorTokens.fillSecondary
-        case .ghost:
+        case .tertiary:
             return ColorTokens.fill0
+        case .ghost:
+            return Color.clear
+        case .appleLogin:
+            return ColorTokens.textPrimary
         }
     }
     
@@ -151,15 +172,17 @@ public struct SnappButton: View {
         switch type {
         case .primary:
             return ColorTokens.white
-        case .secondary, .ghost:
-            return ColorTokens.accent
+        case .secondary, .tertiary, .ghost, .googleLogin:
+            return ColorTokens.textPrimary
+        case .appleLogin:
+            return ColorTokens.background
         }
     }
     
     private var borderStyle: some View {
         RoundedRectangle(cornerRadius: RadiusTokens.md)
             .strokeBorder(
-                type == .ghost ? ColorTokens.accent : Color.clear,
+                type == .tertiary ? ColorTokens.gray4 : Color.clear,
                 lineWidth: BorderTokens.thin.width
             )
     }
