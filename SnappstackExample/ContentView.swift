@@ -9,9 +9,8 @@ import SwiftUI
 import Snappstack
 
 struct Widget {
-    let id = UUID().uuidString
+    let titleLabel: String
     let destinationView: AnyView?
-    let label: AnyView
 }
 
 struct ContentView: View {
@@ -19,25 +18,26 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme // Access the current system color scheme
     @State private var overrideColorScheme: ColorScheme? = nil // Optional override
     
-    let freeWidgets: [Widget] = [
+    let widgets: [Widget] = [
         Widget(
-            destinationView: AnyView(ButtonComponent()),
-            label: AnyView(Text("Buttons"))
+            titleLabel: "Buttons",
+            destinationView: AnyView(ButtonComponent())
         ),
         Widget(
-            destinationView: nil,
-            label: AnyView(Text("Textfields"))
+            titleLabel: "Textfields",
+            destinationView: nil
         ),
         Widget(
-            destinationView: nil,
-            label: AnyView(Text("Tab Bar"))
+            titleLabel: "Tab Bar",
+            destinationView: nil
         )
     ]
     
     var body: some View {
-        VStack(spacing: 32) {
-            NavigationStack{
-                HStack(spacing: 16) {
+        NavigationView{
+            VStack(spacing: 16) {
+                Rectangle().frame(height: 1).foregroundColor(Color(uiColor: .systemGroupedBackground))
+                HStack(spacing: 8) {
                     ThemeButton(
                         title: "System",
                         iconName: "leaf",
@@ -68,30 +68,29 @@ struct ContentView: View {
                         themeProvider.switchToDark()
                     }
                 }
+                .background(Color.clear)
+                Rectangle().frame(height: 1).foregroundColor(Color(uiColor: .systemGroupedBackground))
                 
                 List{
-                    Section {
-                        ForEach(freeWidgets, id: \.id) { widget in
+                    Section(header: Text("Atomic Elements")
+                        .font(.system(size: 16, weight: .semibold))
+                        .textCase(nil)) {
+                        ForEach(widgets, id: \.titleLabel) { widget in
                             NavigationLink {
                                 widget.destinationView
                             } label: {
-                                widget.label
+                                Text(widget.titleLabel)
                             }
                         }
-                    } header: {
-                        HStack {
-                            Text("Atomic Elements")
-                                .font(.system(size: 16, weight: .bold))
-                                .textCase(nil)
-                            Spacer()
-                        }
-                        .padding(.vertical, 4)
                     }
                 }
+                .scrollDisabled(true)
                 .navigationTitle("Snappstack UIKit")
             }
+            .background(Color(uiColor: .systemGroupedBackground))
+            .preferredColorScheme(overrideColorScheme)
         }
-        .preferredColorScheme(overrideColorScheme)
+        
     }
 }
 
@@ -110,7 +109,7 @@ struct ThemeButton: View {
                 Text(title)
                     .font(.system(size: 16, weight: isSelected ? .bold : .regular))
             }
-            .frame(width: 100, height: 100)
+            .frame(width: (UIScreen.main.bounds.width-48)/3, height: 82)
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(isSelected ? selectedColor : Color.gray, lineWidth: isSelected ? 1.5 : 1)
