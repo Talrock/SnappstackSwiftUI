@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
+import Combine
 
-final class ThemeProvider: ObservableObject {
-    static let shared = ThemeProvider()
+public final class ThemeProvider: ObservableObject {
+    public static let shared = ThemeProvider()
     
-    @Published private(set) var currentTheme: ThemeProtocol
+    @Published public private(set) var currentTheme: ThemeProtocol
     
-    init(theme: ThemeProtocol = LightThemeColors()) {
+    public init(theme: ThemeProtocol = LightThemeColors()) {
         self.currentTheme = theme
     }
     
-    func switchToLight() {
+    public func switchToLight() {
         currentTheme = LightThemeColors()
     }
     
-    func switchToDark() {
+    public func switchToDark() {
         currentTheme = DarkThemeColors()
     }
 }
