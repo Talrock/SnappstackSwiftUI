@@ -81,12 +81,12 @@ public struct SnappButton: View {
     public var body: some View {
         Button(action: performAction) {
             HStack(spacing: Constants.Padding.iconSpacing) {
+                Rectangle().frame(width: (leadingIcon == nil && !isLoading) ? 15 : 7).foregroundColor(Color.clear)
                 if isLoading {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: foregroundColor))
                         .scaleEffect(size == .small ? 0.8 : 1.0)
                 } else {
-                   
                     if let leadingIcon = leadingIcon {
                         if type == .appleLogin {
                             leadingIcon
@@ -101,12 +101,12 @@ public struct SnappButton: View {
                                 .foregroundColor(foregroundColor)
                         }
                     }
-                    
-                    Text(title)
-                        .font(textStyle.font)
-                        .underline(type == .ghost)
-                        .foregroundColor(foregroundColor)
-                    
+                    if !title.isEmpty {
+                        Text(title)
+                            .font(textStyle.font)
+                            .underline(type == .ghost)
+                            .foregroundColor(foregroundColor)
+                    }
                     //                        .lineHeight(textStyle.lineHeight)
                     //                        .letterSpacing(textStyle.letterSpacing)
                     if let trailingIcon = trailingIcon {
@@ -115,11 +115,12 @@ public struct SnappButton: View {
                             .foregroundColor(foregroundColor)
                     }
                 }
+                Rectangle().frame(width: (leadingIcon == nil && !isLoading) ? 15 : 7).foregroundColor(Color.clear)
             }
             .frame(maxWidth: isFloating ? nil : .infinity)
             .frame(height: type == .ghost ? Constants.Height.small : buttonHeight)
             .background(backgroundColor)
-            .cornerRadius(RadiusTokens.md)
+            .cornerRadius(isFloating ? buttonHeight/2 : RadiusTokens.md)
             .opacity(isEnabled ? OpacityTokens.opacity100 : OpacityTokens.opacity50)
             .overlay(
                 borderStyle

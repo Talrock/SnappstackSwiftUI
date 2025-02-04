@@ -246,14 +246,6 @@ struct ButtonView: View {
                         leadingIcon: Image("ic_google"),
                         action: {}
                     )
-                    
-                    //                    SnappButton(
-                    //                        title: "Ghost S",
-                    //                        leadingIcon: Image(systemName: "message"),
-                    //                        type: .ghost,
-                    //                        size: .small,
-                    //                        action: {}
-                    //                    )
                 }
                 
             }
