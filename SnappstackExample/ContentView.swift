@@ -21,7 +21,7 @@ struct ContentView: View {
     let widgets: [Widget] = [
         Widget(
             titleLabel: "Buttons",
-            destinationView: AnyView(ButtonComponent())
+            destinationView: AnyView(ButtonView())
         ),
         Widget(
             titleLabel: "Textfields",

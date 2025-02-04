@@ -1,5 +1,5 @@
 //
-//  ButtonComponent.swift
+//  ButtonView.swift
 //  SnappstackExample
 //
 //  Created by Mostafizur Rahman on 4/2/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Snappstack
 
-struct ButtonComponent: View {
+struct ButtonView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 16) {
@@ -72,8 +72,8 @@ struct ButtonComponent: View {
     }
 }
 
-struct ButtonComponent_Previews: PreviewProvider {
+struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonComponent()
+        ButtonView()
     }
 }
