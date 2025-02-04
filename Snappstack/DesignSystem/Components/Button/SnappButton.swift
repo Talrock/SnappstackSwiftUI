@@ -81,7 +81,7 @@ public struct SnappButton: View {
     public var body: some View {
         Button(action: performAction) {
             HStack(spacing: Constants.Padding.iconSpacing) {
-                Rectangle().frame(width: (leadingIcon == nil && !isLoading) ? 15 : 7).foregroundColor(Color.clear)
+                Rectangle().frame(width: (leadingIcon == nil && trailingIcon == nil) ? 15 : 0).foregroundColor(Color.clear)
                 if isLoading {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: foregroundColor))
@@ -115,9 +115,9 @@ public struct SnappButton: View {
                             .foregroundColor(foregroundColor)
                     }
                 }
-                Rectangle().frame(width: (leadingIcon == nil && !isLoading) ? 15 : 7).foregroundColor(Color.clear)
+                Rectangle().frame(width: (leadingIcon == nil && trailingIcon == nil) ? 15 : 0).foregroundColor(Color.clear)
             }
-            .frame(maxWidth: isFloating ? nil : .infinity)
+            .frame(maxWidth: isFloating ? (title.isEmpty ? buttonHeight : nil) : .infinity)
             .frame(height: type == .ghost ? Constants.Height.small : buttonHeight)
             .background(backgroundColor)
             .cornerRadius(isFloating ? buttonHeight/2 : RadiusTokens.md)
