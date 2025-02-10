@@ -1,5 +1,5 @@
 //
-//  SnappButton.swift
+//  SNButton.swift
 //  Snappstack
 //
 //  Created by Mostafizur Rahman on 3/2/25.
@@ -22,8 +22,8 @@ public enum ButtonSize {
     case small
 }
 
-// SnappButtonConstants.swift
-extension SnappButton {
+// SNButtonConstants.swift
+extension SNButton {
     struct Constants {
         struct Height {
             static let large: CGFloat = 52
@@ -44,8 +44,8 @@ extension SnappButton {
     }
 }
 
-// SnappButton.swift
-public struct SnappButton: View {
+// SNButton.swift
+public struct SNButton: View {
     var title: String
     var type: ButtonType
     var size: ButtonSize = .large
@@ -88,18 +88,9 @@ public struct SnappButton: View {
                         .scaleEffect(size == .small ? 0.8 : 1.0)
                 } else {
                     if let leadingIcon = leadingIcon {
-                        if type == .appleLogin {
-                            leadingIcon
-                                .font(.system(size: iconSize))
-                                .foregroundColor(foregroundColor)
-                        } else if type == .googleLogin {
-                            leadingIcon
-                                .font(.system(size: iconSize))
-                        } else {
-                            leadingIcon
-                                .font(.system(size: iconSize))
-                                .foregroundColor(foregroundColor)
-                        }
+                        leadingIcon
+                            .font(.system(size: iconSize))
+                            .foregroundColor(foregroundColor)
                     }
                     if !title.isEmpty {
                         Text(title)
@@ -107,8 +98,6 @@ public struct SnappButton: View {
                             .underline(type == .ghost)
                             .foregroundColor(foregroundColor)
                     }
-                    //                        .lineHeight(textStyle.lineHeight)
-                    //                        .letterSpacing(textStyle.letterSpacing)
                     if let trailingIcon = trailingIcon {
                         trailingIcon
                             .font(.system(size: iconSize))
@@ -176,7 +165,7 @@ public struct SnappButton: View {
         case .secondary, .tertiary, .ghost, .googleLogin:
             return ColorTokens.textPrimary
         case .appleLogin:
-            return ColorTokens.background
+            return ColorTokens.gray1
         }
     }
     

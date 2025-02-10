@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "apple.png",
+      "filename" : "Card.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "apple@2x.png",
+      "filename" : "Card@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "apple@3x.png",
+      "filename" : "Card@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -11,28 +11,28 @@ import Snappstack
 struct ButtonView: View {
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 40) {
+            VStack(alignment: .leading, spacing: SpacingTokens.xxl) {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Primary Active Button")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Primary L",
                         type: .primary,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Primary M",
                         type: .primary,
                         size: .medium,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Primary S",
                         type: .primary,
                         size: .small,
@@ -43,25 +43,25 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Primary Button Properties")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Message",
                         type: .primary,
                         leadingIcon: Image("ic_chat"),
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "",
                         type: .primary,
                         isLoading: true,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Next",
                         type: .primary,
                         trailingIcon: Image("ic_right"),
@@ -72,18 +72,18 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Primary Disabled Button")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(.system(size: SpacingTokens.sm, weight: .bold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Primary L",
                         type: .primary,
                         isEnabled: false,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Primary M",
                         type: .primary,
                         size: .medium,
@@ -91,7 +91,7 @@ struct ButtonView: View {
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Primary S",
                         type: .primary,
                         size: .small,
@@ -103,24 +103,24 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Secondary Button")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Secondary L",
                         type: .secondary,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Secondary M",
                         type: .secondary,
                         size: .medium,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Secondary S",
                         type: .secondary,
                         size: .small,
@@ -131,24 +131,24 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Tertiary Button")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Tertiary L",
                         type: .tertiary,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Tertiary M",
                         type: .tertiary,
                         size: .medium,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Tertiary S",
                         type: .tertiary,
                         size: .small,
@@ -159,24 +159,24 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Ghost Button")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Ghost L",
                         type: .ghost,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Ghost M",
                         type: .ghost,
                         size: .medium,
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Ghost S",
                         type: .ghost,
                         size: .small,
@@ -187,19 +187,19 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Floating Button")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
                     HStack {
-                        SnappButton(
+                        SNButton(
                             title: "Floating",
                             type: .primary,
                             isFloating: true,
                             action: {}
                         )
                         
-                        SnappButton(
+                        SNButton(
                             title: "Floating",
                             type: .primary,
                             isEnabled: false,
@@ -207,7 +207,7 @@ struct ButtonView: View {
                             action: {}
                         )
                         
-                        SnappButton(
+                        SNButton(
                             title: "",
                             type: .primary,
                             isFloating: true,
@@ -215,7 +215,7 @@ struct ButtonView: View {
                             action: {}
                         )
                         
-                        SnappButton(
+                        SNButton(
                             title: "",
                             type: .primary,
                             isLoading: true,
@@ -229,18 +229,18 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Social Button")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
                         Spacer()
                     }
                     
-                    SnappButton(
+                    SNButton(
                         title: "Continue with Apple",
                         type: .appleLogin,
                         leadingIcon: Image("ic_apple"),
                         action: {}
                     )
                     
-                    SnappButton(
+                    SNButton(
                         title: "Continue with Google",
                         type: .googleLogin,
                         leadingIcon: Image("ic_google"),

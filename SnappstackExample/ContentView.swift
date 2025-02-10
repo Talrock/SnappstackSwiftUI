@@ -25,7 +25,7 @@ struct ContentView: View {
         ),
         Widget(
             titleLabel: "Textfields",
-            destinationView: nil
+            destinationView: AnyView(TextFieldView())
         ),
         Widget(
             titleLabel: "Tab Bar",
