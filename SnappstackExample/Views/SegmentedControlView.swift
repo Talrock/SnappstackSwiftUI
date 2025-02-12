@@ -25,8 +25,8 @@ struct SegmentedControlView: View {
 //                    style: SegmentControlStyler(
 //                        style: .capsule,
 //                        font: Font.system(size: 16, weight: .semibold),
-//                        textColor: SegmentControlStylerColor(active: Color.white, inactive: Color.gray),
-//                        activeBarColor: Color.blue
+//                textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
+//                activeBarColor: ColorTokens.textPrimary
 //                    ),
 //                    segmentTapped: nil
 //                )
@@ -42,8 +42,8 @@ struct SegmentedControlView: View {
 //                    style: SegmentControlStyler(
 //                        style: .capsule,
 //                        font: Font.system(size: 16, weight: .semibold),
-//                        textColor: SegmentControlStylerColor(active: Color.white, inactive: Color.gray),
-//                        activeBarColor: Color.blue
+//                textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
+//                activeBarColor: ColorTokens.textPrimary
 //                    ),
 //                    segmentTapped: nil
 //                )
@@ -56,9 +56,9 @@ struct SegmentedControlView: View {
                     scrollable: false,
                     activeSegment: $selectedSegment,
                     style: SegmentControlStyler(
-                        font: Font.system(size: 18, weight: .bold),
-                        textColor: SegmentControlStylerColor(active: Color.black, inactive: Color.gray),
-                        activeBarColor: Color.blue
+                        font: Font.system(size: 18, weight: .semibold),
+                        textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
+                        activeBarColor: ColorTokens.textPrimary
                     )
                 )
                 
@@ -73,8 +73,8 @@ struct SegmentedControlView: View {
                     style: SegmentControlStyler(
                         style: .capsule,
                         font: Font.system(size: 15, weight: .semibold),
-                        textColor: SegmentControlStylerColor(active: Color.white, inactive: Color.gray),
-                        activeBarColor: Color.blue)
+                        textColor: SegmentControlStylerColor(active: ColorTokens.gray1, inactive: ColorTokens.gray3),
+                        activeBarColor: ColorTokens.textPrimary)
                 )
                 
                 SNScrollSegmentedControl(
@@ -86,8 +86,8 @@ struct SegmentedControlView: View {
                     activeSegment: $selectedSegment,
                     style: SegmentControlStyler(
                         font: Font.system(size: 15, weight: .semibold),
-                        textColor: SegmentControlStylerColor(active: Color.black, inactive: Color.gray),
-                        activeBarColor: Color.blue)
+                        textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
+                        activeBarColor: ColorTokens.textPrimary)
                 )
                 
                 SNScrollSegmentedControl(
@@ -102,8 +102,8 @@ struct SegmentedControlView: View {
                     activeSegment: $selectedSegment,
                     style: SegmentControlStyler(
                         font: Font.system(size: 15, weight: .semibold),
-                        textColor: SegmentControlStylerColor(active: Color.black, inactive: Color.gray),
-                        activeBarColor: Color.blue)
+                        textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
+                        activeBarColor: ColorTokens.textPrimary)
                 )
                
             }
@@ -113,6 +113,6 @@ struct SegmentedControlView: View {
 
 struct SegmentedControlView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView()
+        SegmentedControlView()
     }
 }

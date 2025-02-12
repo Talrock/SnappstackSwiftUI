@@ -56,7 +56,7 @@ internal struct SegmentView: View {
                     .font(isActiveSegment(currentSegment: segment) ? style.font.active : style.font.inactive)
                     .foregroundColor((segment.title == activeSegment) ? style.textColor.active : style.textColor.inactive)
                     .padding(.horizontal, SpacingTokens.xs)
-                    .padding(.vertical, SpacingTokens.xxxs)
+                    .padding(.vertical, SpacingTokens.xxs)
                     .background(isActiveSegment(currentSegment: segment) ? style.activeBarColor : Color.clear)
                     .clipShape(.capsule)
                 
