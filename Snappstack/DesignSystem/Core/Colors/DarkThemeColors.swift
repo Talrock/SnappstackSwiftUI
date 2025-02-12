@@ -25,6 +25,7 @@ public final class DarkThemeColors: ThemeProtocol {
     public let error: Color
     public let warning: Color
     
+    public let gray0: Color
     public let gray1: Color
     public let gray2: Color
     public let gray3: Color
@@ -49,6 +50,7 @@ public final class DarkThemeColors: ThemeProtocol {
         error = Color(.displayP3, red: 1.0, green: 0.37, blue: 0.37, opacity: 1.0)
         warning = Color(.displayP3, red: 1.0, green: 0.85, blue: 0.3, opacity: 1.0)
         
+        gray0 = Color(.displayP3, red: 0.01, green: 0.01, blue: 0.01, opacity: 1.0)
         gray1 = Color(.displayP3, red: 0.15, green: 0.15, blue: 0.15, opacity: 1.0)
         gray2 = Color(.displayP3, red: 0.25, green: 0.25, blue: 0.25, opacity: 1.0)
         gray3 = Color(.displayP3, red: 0.35, green: 0.35, blue: 0.35, opacity: 1.0)

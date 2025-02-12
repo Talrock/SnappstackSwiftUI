@@ -165,7 +165,7 @@ public struct SNButton: View {
         case .secondary, .tertiary, .ghost, .googleLogin:
             return ColorTokens.textPrimary
         case .appleLogin:
-            return ColorTokens.gray1
+            return ColorTokens.gray0
         }
     }
     

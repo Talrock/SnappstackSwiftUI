@@ -25,6 +25,7 @@ public struct ColorTokens {
     public static var error: Color { ThemeProvider.shared.currentTheme.error }
     public static var warning: Color { ThemeProvider.shared.currentTheme.warning }
     
+    public static var gray0: Color { ThemeProvider.shared.currentTheme.gray0 }
     public static var gray1: Color { ThemeProvider.shared.currentTheme.gray1 }
     public static var gray2: Color { ThemeProvider.shared.currentTheme.gray2 }
     public static var gray3: Color { ThemeProvider.shared.currentTheme.gray3 }

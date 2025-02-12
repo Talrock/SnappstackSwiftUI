@@ -29,42 +29,61 @@ internal struct SegmentView: View {
     }
     
     var body: some View {
-        Button {
-            
-            withAnimation {
-                
-                activeSegment = segment.title
-                segmentTapped?(segment)
-                
-                if let scrollViewProxy {
-                    scrollViewProxy.scrollTo(segment.id)
+        
+        switch self.style.style {
+        case .underline(_), .overline(_):
+            Button {
+                withAnimation {
+                    activeSegment = segment.title
+                    segmentTapped?(segment)
+                    
+                    if let scrollViewProxy {
+                        scrollViewProxy.scrollTo(segment.id)
+                    }
                 }
-            }
-        } label: {
-            
-            switch self.style.style {
-            case .underline(_), .overline(_):
+            } label: {
                 UnderlineSegmentView(
                     segment: segment,
                     style: style,
                     activeSegment: $activeSegment
                 )
-                
-            case .capsule:
-                
-                Text(.init("\(style.titleSpacerText)\(segment.title)\(style.titleSpacerText)"))
-                    .font(isActiveSegment(currentSegment: segment) ? style.font.active : style.font.inactive)
-                    .foregroundColor((segment.title == activeSegment) ? style.textColor.active : style.textColor.inactive)
-                    .padding(.horizontal, SpacingTokens.xs)
-                    .padding(.vertical, SpacingTokens.xxs)
-                    .background(isActiveSegment(currentSegment: segment) ? style.activeBarColor : Color.clear)
-                    .clipShape(.capsule)
-                
             }
+            .buttonStyle(.plain)
+            .animation(.easeOut(duration: 0.35), value: activeSegment)
+        case .capsule:
+            Button {
+                withAnimation {
+                    activeSegment = segment.title
+                    segmentTapped?(segment)
+                    
+                    if let scrollViewProxy {
+                        scrollViewProxy.scrollTo(segment.id)
+                    }
+                }
+            } label: {
+                VStack(spacing: 0) {
+                    Text(.init("\(style.titleSpacerText)\(segment.title)\(style.titleSpacerText)"))
+                        .font(isActiveSegment(currentSegment: segment) ? style.font.active : style.font.inactive)
+                        .foregroundColor((segment.title == activeSegment) ? style.textColor.active : style.textColor.inactive)
+                        .padding(.horizontal, SpacingTokens.xs)
+                        .padding(.vertical, SpacingTokens.xxs)
+                    
+                    emptyBarView
+                }
+            }
+            .background(isActiveSegment(currentSegment: segment) ? style.activeBarColor : Color.clear)
+            .clipShape(.capsule)
+            .buttonStyle(.plain)
+            .animation(.easeOut(duration: 0.35), value: activeSegment)
         }
-        .buttonStyle(.plain)
-        .animation(.easeOut(duration: 0.35), value: activeSegment)
     }
+    
+    private var emptyBarView: some View {
+        style.activeBarColor
+            .frame(height: style.activeBarWidth)
+            .opacity(OpacityTokens.opacity0)
+    }
+
 }
 
 internal struct UnderlineSegmentView: View {

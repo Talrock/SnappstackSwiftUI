@@ -25,6 +25,7 @@ public protocol ThemeProtocol {
     var error: Color { get }
     var warning: Color { get }
     
+    var gray0: Color { get }
     var gray1: Color { get }
     var gray2: Color { get }
     var gray3: Color { get }

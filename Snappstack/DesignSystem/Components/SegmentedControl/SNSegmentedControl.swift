@@ -45,11 +45,15 @@ public struct SNSegmentedControl: View {
                     }
                 }
             }
-            
+            .padding(SpacingTokens.xxxs)
+            .background(style.backgroundColor)
+            .clipShape(.capsule)
+
             if leftAligned {
                 Spacer()
             }
         }
+        .padding(SpacingTokens.screenEdge)
     }
 }
 
@@ -80,20 +84,19 @@ public struct SNScrollSegmentedControl: View {
     }
     
     public var body: some View {
-
-        
-        Group {
-            if scrollable {
+        if scrollable {
+            Group {
                 ScrollViewReader { scrollViewProxy in
                     ScrollView(.horizontal, showsIndicators: false) {
                         getStackSegmentedControl(scrollViewProxy: scrollViewProxy)
                     }
                 }
-            }
-            else {
-                getStackSegmentedControl(scrollViewProxy: nil)
-                    .padding(.horizontal, style.parentPadding.horizontal)
-            }
+            }.clipShape(.capsule)
+        }
+        else {
+            getStackSegmentedControl(scrollViewProxy: nil)
+                .background(style.backgroundColor)
+                .clipShape(.capsule)
         }
     }
     
@@ -138,7 +141,6 @@ private struct StackSegmentedControl: View {
     var body: some View {
         HStack(spacing: spacing) {
             ForEach(segments) { segment in
-
                 SegmentView(
                     segment: segment,
                     style: style,
@@ -147,7 +149,6 @@ private struct StackSegmentedControl: View {
                     segmentTapped: segmentTapped
                 )
                 .id(segment.id)
-                .padding(.vertical)
                 .hoverEffect()
             }
         }
