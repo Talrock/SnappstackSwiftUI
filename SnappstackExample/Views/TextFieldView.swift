@@ -10,9 +10,7 @@ import Snappstack
 
 struct TextFieldView: View {
     @State private var title: String = ""
-    @FocusState private var isTextFieldFocused: Bool
-    
-    @State private var phoneNumber: String = ""
+    @State private var phoneNumber: String = ""    
     
     var body: some View {
         ScrollView {
@@ -117,14 +115,14 @@ struct TextFieldView: View {
                     SNPhoneTextField(
                         placeholder: "Phone number",
                         title: "Label text",
-                        text: $title,
+                        text: $phoneNumber,
                         trailingIcon: Image("ic_info")
                     )
                     
                     SNFilledPhoneTextField(
                         placeholder: "Phone number",
                         title: "Label text",
-                        text: $title,
+                        text: $phoneNumber,
                         fillColor: ColorTokens.gray2,
                         trailingIcon: Image("ic_info")
                     )
@@ -132,7 +130,7 @@ struct TextFieldView: View {
                     SNPhoneTextField(
                         placeholder: "Phone number",
                         title: "Label text",
-                        text: $title,
+                        text: $phoneNumber,
                         isError: true,
                         trailingIcon: Image("ic_info")
                     )

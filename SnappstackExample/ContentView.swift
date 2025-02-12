@@ -28,8 +28,8 @@ struct ContentView: View {
             destinationView: AnyView(TextFieldView())
         ),
         Widget(
-            titleLabel: "Tab Bar",
-            destinationView: nil
+            titleLabel: "Segmented control",
+            destinationView: AnyView(SegmentedControlView())
         )
     ]
     
