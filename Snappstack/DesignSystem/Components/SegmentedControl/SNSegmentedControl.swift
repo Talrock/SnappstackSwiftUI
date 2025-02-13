@@ -23,11 +23,11 @@ public struct SNSegmentedControl: View {
                 style: SegmentControlStyler,
                 segmentTapped: ((Segment) -> Void)? = nil) {
         
-        self.segments       = segments
+        self.segments = segments
         self._activeSegment = activeSegment
-        self.style          = style
-        self.leftAligned    = leftAligned
-        self.segmentTapped  = segmentTapped
+        self.style = style
+        self.leftAligned = leftAligned
+        self.segmentTapped = segmentTapped
     }
     
     public var body: some View {
@@ -75,12 +75,12 @@ public struct SNScrollSegmentedControl: View {
                 style: SegmentControlStyler,
                 segmentTapped: ((Segment) -> Void)? = nil) {
         
-        self.segments       = segments
-        self.spacing        = spacing
-        self.scrollable     = scrollable
+        self.segments = segments
+        self.spacing = spacing
+        self.scrollable = scrollable
         self._activeSegment = activeSegment
-        self.style          = style
-        self.segmentTapped  = segmentTapped
+        self.style = style
+        self.segmentTapped = segmentTapped
     }
     
     public var body: some View {
@@ -139,7 +139,7 @@ private struct StackSegmentedControl: View {
     var segmentTapped:((Segment) -> Void)?
     
     var body: some View {
-        HStack(spacing: spacing) {
+        HStack(spacing: 0) {
             ForEach(segments) { segment in
                 SegmentView(
                     segment: segment,
@@ -156,12 +156,10 @@ private struct StackSegmentedControl: View {
         .padding(.horizontal, style.parentPadding.horizontal)
         .padding(.bottom, style.parentPadding.bottom)
         .onAppear {
-
-            // Scroll to the active segment on appear
             if let activeSegment = self.segments.first(where: { $0.title == self.activeSegment }) {
-            
                 scrollViewProxy?.scrollTo(activeSegment.id)
             }
         }
+
     }
 }

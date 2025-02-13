@@ -90,6 +90,9 @@ struct ContentView: View {
             .background(Color(uiColor: .systemGroupedBackground))
             .preferredColorScheme(overrideColorScheme)
         }
+        .onAppear() {
+            colorScheme == .dark ? themeProvider.switchToDark() : themeProvider.switchToLight()
+        }
         
     }
 }

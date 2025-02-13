@@ -23,7 +23,7 @@ struct SegmentedControlView: View {
                     activeSegment: $selectedSegment1,
                     leftAligned: false,
                     style: SegmentControlStyler(
-                        font: Font.system(size: 15, weight: .semibold),
+                        font: FontTokens.noteMedium.font,
                         textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
                         activeBarColor: ColorTokens.textPrimary,
                         backgroundColor: ColorTokens.fill0
@@ -39,9 +39,9 @@ struct SegmentedControlView: View {
                     leftAligned: false,
                     style: SegmentControlStyler(
                         style: .capsule,
-                        font: Font.system(size: 15, weight: .semibold),
-                        textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
-                        activeBarColor: ColorTokens.gray0,
+                        font: FontTokens.noteMedium.font,
+                        textColor: SegmentControlStylerColor(active: ColorTokens.black, inactive: ColorTokens.gray3),
+                        activeBarColor: ColorTokens.white,
                         backgroundColor: ColorTokens.gray1
                     )
                 )
@@ -56,9 +56,9 @@ struct SegmentedControlView: View {
                     leftAligned: false,
                     style: SegmentControlStyler(
                         style: .capsule,
-                        font: Font.system(size: 15, weight: .semibold),
-                        textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
-                        activeBarColor: ColorTokens.gray0,
+                        font: FontTokens.noteMedium.font,
+                        textColor: SegmentControlStylerColor(active: ColorTokens.black, inactive: ColorTokens.gray3),
+                        activeBarColor: ColorTokens.white,
                         backgroundColor: ColorTokens.gray1
                     )
                 )
@@ -74,7 +74,7 @@ struct SegmentedControlView: View {
                     activeSegment: $selectedSegment,
                     style: SegmentControlStyler(
                         style: .capsule,
-                        font: Font.system(size: 15, weight: .semibold),
+                        font: FontTokens.noteMedium.font,
                         textColor: SegmentControlStylerColor(active: ColorTokens.gray0, inactive: ColorTokens.gray3),
                         activeBarColor: ColorTokens.textPrimary,
                         backgroundColor: ColorTokens.fill0
@@ -90,7 +90,7 @@ struct SegmentedControlView: View {
                     ],
                     activeSegment: $selectedSegment,
                     style: SegmentControlStyler(
-                        font: Font.system(size: 15, weight: .semibold),
+                        font: FontTokens.noteMedium.font,
                         textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
                         activeBarColor: ColorTokens.textPrimary,
                         backgroundColor: ColorTokens.fill0
@@ -108,9 +108,10 @@ struct SegmentedControlView: View {
                     ],
                     activeSegment: $selectedSegment,
                     style: SegmentControlStyler(
-                        font: Font.system(size: 15, weight: .semibold),
+                        font: FontTokens.noteMedium.font,
                         textColor: SegmentControlStylerColor(active: ColorTokens.textPrimary, inactive: ColorTokens.gray3),
                         activeBarColor: ColorTokens.textPrimary,
+                        inactiveBarColor: ColorTokens.gray1,
                         backgroundColor: ColorTokens.fill0
                     )
                 )

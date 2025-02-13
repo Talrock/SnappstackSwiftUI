@@ -101,20 +101,18 @@ internal struct UnderlineSegmentView: View {
          style: SegmentControlStyler,
          activeSegment: Binding<String>) {
         
-        self.segment           = segment
-        self.style             = style
-        self._activeSegment    = activeSegment
+        self.segment = segment
+        self.style = style
+        self._activeSegment = activeSegment
     }
     
     var body: some View {
-        
         VStack(spacing: 0) {
-            
             switch style.style {
             case .overline(let bottomPadding):
+                underlineView
                 underlineBarView
                     .padding(.bottom, bottomPadding)
-                
             default:
                 EmptyView()
                     .frame(width: 0, height: 0)
@@ -123,11 +121,13 @@ internal struct UnderlineSegmentView: View {
             Text(.init("\(style.titleSpacerText)\(segment.title)\(style.titleSpacerText)"))
                 .font(isActiveSegment ? style.font.active : style.font.inactive)
                 .foregroundColor(isActiveSegment ? style.textColor.active : style.textColor.inactive)
-            
+                .padding(.horizontal, SpacingTokens.xs)
+
             switch style.style {
             case .underline(let topPadding):
                 underlineBarView
                     .padding(.top, topPadding)
+                underlineView
                 
             default:
                 EmptyView()
@@ -143,5 +143,10 @@ internal struct UnderlineSegmentView: View {
             .cornerRadius(style.activeBarWidth / 2)
             .frame(height: style.activeBarWidth)
             .opacity(isActiveSegment ? OpacityTokens.opacity100 : OpacityTokens.opacity0)
+    }
+    
+    private var underlineView: some View {
+        style.inactiveBarColor
+            .frame(height: 1)
     }
 }

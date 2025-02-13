@@ -16,7 +16,7 @@ public struct Segment: Identifiable {
     public var id: String { self.title }
     
     public init(title: String, object: Any? = nil) {
-        self.title  = title
+        self.title = title
         self.object = object
     }
 }
@@ -42,6 +42,7 @@ public struct SegmentControlStyler {
     let textColor: SegmentControlStylerColor
     
     var activeBarColor: Color
+    var inactiveBarColor: Color
     var backgroundColor: Color
     var activeBarWidth: CGFloat = SpacingTokens.micro
     
@@ -53,15 +54,17 @@ public struct SegmentControlStyler {
                 font: SegmentControlStylerFont,
                 textColor: SegmentControlStylerColor,
                 activeBarColor: Color,
+                inactiveBarColor: Color = .clear,
                 backgroundColor: Color,
                 activeBarWidth: CGFloat? = nil,
                 titleTextPaddingSpaces: Int? = nil) {
         
-        self.style                  = style
-        self.font                   = font
-        self.textColor              = textColor
-        self.activeBarColor         = activeBarColor
-        self.backgroundColor         = backgroundColor
+        self.style = style
+        self.font = font
+        self.textColor = textColor
+        self.activeBarColor = activeBarColor
+        self.inactiveBarColor = inactiveBarColor
+        self.backgroundColor = backgroundColor
         self.titleTextPaddingSpaces = titleTextPaddingSpaces
         
         if let activeBarWidth {
@@ -73,6 +76,7 @@ public struct SegmentControlStyler {
                 font: Font,
                 textColor: SegmentControlStylerColor,
                 activeBarColor: Color,
+                inactiveBarColor: Color = .clear,
                 backgroundColor: Color,
                 activeBarWidth: CGFloat? = nil) {
         
@@ -81,6 +85,7 @@ public struct SegmentControlStyler {
             font: SegmentControlStylerFont(active: font),
             textColor: textColor,
             activeBarColor: activeBarColor,
+            inactiveBarColor: inactiveBarColor,
             backgroundColor: backgroundColor,
             activeBarWidth: activeBarWidth
         )
@@ -106,7 +111,7 @@ public struct SegmentControlStylerFont {
     let inactive: Font
     
     public init(active: Font, inactive: Font? = nil) {
-        self.active   = active
+        self.active = active
         self.inactive = inactive ?? active
     }
 }
@@ -117,7 +122,7 @@ public struct SegmentControlStylerColor {
     let inactive: Color
     
     public init(active: Color, inactive: Color? = nil) {
-        self.active   = active
+        self.active = active
         self.inactive = inactive ?? active
     }
 }
