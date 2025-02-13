@@ -82,7 +82,7 @@ public struct SNFloatingTextField: View {
             
             if !errorMessage.isEmpty {
                 Text(errorMessage)
-                    .font(.system(size: SpacingTokens.xs2, weight: .medium))
+                    .font(FontTokens.caption1.font)
                     .foregroundColor(ColorTokens.error)
             }
         }

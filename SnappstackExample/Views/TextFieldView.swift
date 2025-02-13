@@ -18,7 +18,7 @@ struct TextFieldView: View {
                 VStack(alignment: .leading, spacing: SpacingTokens.md) {
                     HStack {
                         Text("Simple textfield")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -77,7 +77,7 @@ struct TextFieldView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Floating label textfield")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -110,7 +110,7 @@ struct TextFieldView: View {
                 VStack(alignment: .leading, spacing: SpacingTokens.md) {
                     HStack {
                         Text("Phone number textfield")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -142,7 +142,7 @@ struct TextFieldView: View {
                 //                VStack(alignment: .leading, spacing: SpacingTokens.md) {
                 //                    HStack {
                 //                        Text("OTP Textfield")
-                //                            .font(.system(size: SpacingTokens.screenEdge, weight: .semibold))
+                //                            .font(FontTokens.subheadline.font)
                 //                        Spacer()
                 //                    }
                 //                    SNTextField(

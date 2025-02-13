@@ -73,7 +73,7 @@ struct ContentView: View {
                 
                 List{
                     Section(header: Text("Atomic Elements")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(FontTokens.subheadline.font)
                         .textCase(nil)) {
                         ForEach(widgets, id: \.titleLabel) { widget in
                             NavigationLink {

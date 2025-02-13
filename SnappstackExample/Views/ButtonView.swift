@@ -15,7 +15,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Primary Active Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -43,7 +43,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Primary Button Properties")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -72,7 +72,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Primary Disabled Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .bold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -103,7 +103,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Secondary Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -131,7 +131,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Tertiary Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -159,7 +159,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Ghost Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -187,7 +187,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Floating Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     
@@ -229,7 +229,7 @@ struct ButtonView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Social Button")
-                            .font(.system(size: SpacingTokens.sm, weight: .semibold))
+                            .font(FontTokens.subheadline.font)
                         Spacer()
                     }
                     

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct TextStyle {
-    let font: Font
+public struct TextStyle {
+    public let font: Font
     let lineHeight: CGFloat
     let letterSpacing: CGFloat
     let textCase: Text.Case?

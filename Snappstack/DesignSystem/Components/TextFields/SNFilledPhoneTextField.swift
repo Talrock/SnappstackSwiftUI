@@ -39,7 +39,7 @@ public struct SNFilledPhoneTextField: View {
         VStack(alignment: .leading, spacing: SpacingTokens.xxxs) {
             if !title.isEmpty {
                 Text(title)
-                    .font(.system(size: SpacingTokens.xs2, weight: .medium))
+                    .font(FontTokens.noteMedium.font)
                     .foregroundColor(isError ? ColorTokens.error : ColorTokens.textPrimary)
             }
             HStack {
@@ -59,7 +59,7 @@ public struct SNFilledPhoneTextField: View {
             
             if !errorMessage.isEmpty {
                 Text(errorMessage)
-                    .font(.system(size: SpacingTokens.xs2, weight: .medium))
+                    .font(FontTokens.caption1.font)
                     .foregroundColor(ColorTokens.error)
             }
         }

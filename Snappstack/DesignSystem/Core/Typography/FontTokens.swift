@@ -7,75 +7,81 @@
 
 import SwiftUI
 
-struct FontTokens {
-    static let largeTitle = TextStyle(
+public struct FontTokens {
+    public static let largeTitle = TextStyle(
         font: .system(size: 34, weight: .bold),
         lineHeight: 41,
         letterSpacing: 0.37
     )
     
-    static let title1 = TextStyle(
+    public static let title1 = TextStyle(
         font: .system(size: 28, weight: .bold),
         lineHeight: 34,
         letterSpacing: 0.36
     )
     
-    static let title2 = TextStyle(
+    public static let title2 = TextStyle(
         font: .system(size: 22, weight: .bold),
         lineHeight: 28,
         letterSpacing: 0.35
     )
     
-    static let title3 = TextStyle(
+    public static let title3 = TextStyle(
         font: .system(size: 20, weight: .semibold),
         lineHeight: 25,
         letterSpacing: 0.38
     )
     
-    static let headline = TextStyle(
+    public static let headline = TextStyle(
         font: .system(size: 17, weight: .semibold),
         lineHeight: 22,
         letterSpacing: -0.41
     )
     
-    static let body = TextStyle(
+    public static let body = TextStyle(
         font: .system(size: 17, weight: .regular),
         lineHeight: 22,
         letterSpacing: -0.41
     )
     
-    static let callout = TextStyle(
+    public static let callout = TextStyle(
         font: .system(size: 16, weight: .regular),
         lineHeight: 21,
         letterSpacing: -0.32
     )
     
-    static let subheadline = TextStyle(
-        font: .system(size: 15, weight: .regular),
-        lineHeight: 20,
-        letterSpacing: -0.24
+    public static let subheadline = TextStyle(
+        font: .system(size: 16, weight: .semibold),
+        lineHeight: 21,
+        letterSpacing: -0.32
     )
     
-    static let footnote = TextStyle(
+    public static let noteMedium = TextStyle(
+        font: .system(size: 15, weight: .medium),
+        lineHeight: 18,
+        letterSpacing: -0.08
+    )
+    
+    public static let footnote = TextStyle(
         font: .system(size: 13, weight: .regular),
         lineHeight: 18,
         letterSpacing: -0.08
     )
     
-    static let caption1 = TextStyle(
+    public static let caption1 = TextStyle(
         font: .system(size: 12, weight: .regular),
         lineHeight: 16,
         letterSpacing: 0
     )
     
-    static let caption2 = TextStyle(
+    public static let caption2 = TextStyle(
         font: .system(size: 11, weight: .regular),
         lineHeight: 13,
         letterSpacing: 0.06
     )
     
     // Button specific styles
-    struct Button {
+    public struct Button {
         static let large = TextStyle(
             font: .system(size: 16, weight: .semibold),
             lineHeight: 22,
