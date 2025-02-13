@@ -31,10 +31,10 @@ extension Segment: Equatable {
 public struct SegmentControlStyler {
     
     public struct ParentPadding {
-        let top: CGFloat = SpacingTokens.xxxs
+        let top: CGFloat = SpacingTokens.xxs
         let horizontal: CGFloat = SpacingTokens.sm
-        let bottom: CGFloat = SpacingTokens.xxxs
-    } 
+        let bottom: CGFloat = SpacingTokens.xxs
+    }
     
     let style: SegmentControlStyler.Style
     

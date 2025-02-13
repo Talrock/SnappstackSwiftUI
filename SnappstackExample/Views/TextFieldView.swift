@@ -24,7 +24,6 @@ struct TextFieldView: View {
                     
                     SNTextField(
                         placeholder: "Input text",
-                        title: "Label text",
                         text: $title,
                         trailingIcon: Image("ic_info")
                     )
@@ -62,11 +61,13 @@ struct TextFieldView: View {
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNTextField(
+                    SNFilledTextField(
                         placeholder: "Input text",
                         title: "Label text",
+                        errorMessage: "Invalid card number",
                         text: $title,
                         isError: true,
+                        fillColor: ColorTokens.gray2,
                         leadingIcon: Image("ic_card"),
                         trailingIcon: Image("ic_info")
                     )
@@ -98,6 +99,7 @@ struct TextFieldView: View {
                     SNFloatingTextField(
                         placeholder: "Input text",
                         title: "Label text",
+                        errorMessage: "Invalid text",
                         text: $title,
                         isError: true,
                         trailingIcon: Image("ic_info")
@@ -114,7 +116,6 @@ struct TextFieldView: View {
                     
                     SNPhoneTextField(
                         placeholder: "Phone number",
-                        title: "Label text",
                         text: $phoneNumber,
                         trailingIcon: Image("ic_info")
                     )
@@ -130,6 +131,7 @@ struct TextFieldView: View {
                     SNPhoneTextField(
                         placeholder: "Phone number",
                         title: "Label text",
+                        errorMessage: "Invalid phone number",
                         text: $phoneNumber,
                         isError: true,
                         trailingIcon: Image("ic_info")

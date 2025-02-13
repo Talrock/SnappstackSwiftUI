@@ -9,7 +9,8 @@ import SwiftUI
 
 public struct SNFilledPhoneTextField: View {
     public var placeholder: String
-    public var title: String
+    public var title: String = ""
+    public var errorMessage: String = ""
     @Binding public var text: String
     public var isError: Bool = false
     public var fillColor: Color? = .clear
@@ -18,7 +19,8 @@ public struct SNFilledPhoneTextField: View {
     
     public init(
         placeholder: String,
-        title: String,
+        title: String = "",
+        errorMessage: String = "",
         text: Binding<String>,
         isError: Bool = false,
         fillColor: Color? = .clear,
@@ -26,6 +28,7 @@ public struct SNFilledPhoneTextField: View {
     ) {
         self.placeholder = placeholder
         self.title = title
+        self.errorMessage = errorMessage
         self._text = text
         self.isError = isError
         self.fillColor = fillColor
@@ -34,9 +37,11 @@ public struct SNFilledPhoneTextField: View {
     
     public var body: some View {
         VStack(alignment: .leading, spacing: SpacingTokens.xxxs) {
-            Text(title)
-                .font(.system(size: SpacingTokens.xs2, weight: .medium))
-                .foregroundColor(isError ? ColorTokens.error : ColorTokens.textPrimary)
+            if !title.isEmpty {
+                Text(title)
+                    .font(.system(size: SpacingTokens.xs2, weight: .medium))
+                    .foregroundColor(isError ? ColorTokens.error : ColorTokens.textPrimary)
+            }
             HStack {
                 PhoneNumberField(text: $text)
                     .padding(.vertical, SpacingTokens.xs2)
@@ -51,6 +56,12 @@ public struct SNFilledPhoneTextField: View {
             }
             .background(fillColor?.opacity(isFocused ? OpacityTokens.opacity100 : OpacityTokens.opacity50))
             .cornerRadius(SpacingTokens.xs)
+            
+            if !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .font(.system(size: SpacingTokens.xs2, weight: .medium))
+                    .foregroundColor(ColorTokens.error)
+            }
         }
     }
 }

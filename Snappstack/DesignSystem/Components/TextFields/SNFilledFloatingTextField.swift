@@ -18,6 +18,7 @@ struct Constants {
 public struct SNFilledFloatingTextField: View {
     public var placeholder: String
     public var title: String
+    public var errorMessage: String = ""
     @Binding public var text: String
     public var isSecure: Bool = false
     public var isError: Bool = false
@@ -28,6 +29,7 @@ public struct SNFilledFloatingTextField: View {
     public init(
         placeholder: String,
         title: String,
+        errorMessage: String = "",
         text: Binding<String>,
         isSecure: Bool = false,
         isError: Bool = false,
@@ -37,6 +39,7 @@ public struct SNFilledFloatingTextField: View {
     ) {
         self.placeholder = placeholder
         self.title = title
+        self.errorMessage = errorMessage
         self._text = text
         self.isSecure = isSecure
         self.isError = isError
@@ -75,8 +78,15 @@ public struct SNFilledFloatingTextField: View {
                         .padding(.trailing, SpacingTokens.xs)
                 }
             }
+            .background(fillColor?.opacity(isFocused ? OpacityTokens.opacity100 : OpacityTokens.opacity50))
+            .cornerRadius(SpacingTokens.xs)
+            
+            if !errorMessage.isEmpty {
+                Text(errorMessage)
+                    .font(.system(size: SpacingTokens.xs2, weight: .medium))
+                    .foregroundColor(ColorTokens.error)
+            }
         }
-        .background(fillColor?.opacity(isFocused ? OpacityTokens.opacity100 : OpacityTokens.opacity50))
-        .cornerRadius(SpacingTokens.xs)
+
     }
 }
