@@ -28,10 +28,11 @@ struct TextFieldView: View {
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNFilledTextField(
+                    SNTextField(
                         placeholder: "Input text",
                         title: "Label text",
                         text: $title,
+                        type: .filled,
                         fillColor: ColorTokens.gray2,
                         trailingIcon: Image("ic_info")
                     )
@@ -44,10 +45,11 @@ struct TextFieldView: View {
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNFilledTextField(
+                    SNTextField(
                         placeholder: "Input text",
                         title: "Label text",
                         text: $title,
+                        type: .filled,
                         fillColor: ColorTokens.gray2,
                         leadingIcon: Image("ic_card"),
                         trailingIcon: Image("ic_info")
@@ -61,11 +63,12 @@ struct TextFieldView: View {
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNFilledTextField(
+                    SNTextField(
                         placeholder: "Input text",
                         title: "Label text",
                         errorMessage: "Invalid card number",
                         text: $title,
+                        type: .filled,
                         isError: true,
                         fillColor: ColorTokens.gray2,
                         leadingIcon: Image("ic_card"),
@@ -81,26 +84,29 @@ struct TextFieldView: View {
                         Spacer()
                     }
                     
-                    SNFloatingTextField(
+                    SNTextField(
                         placeholder: "Input text",
                         title: "Label text",
                         text: $title,
+                        type: .floatingOutlined,
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNFilledFloatingTextField(
+                    SNTextField(
                         placeholder: "Input text",
                         title: "Label text",
                         text: $title,
+                        type: .floatingFilled,
                         fillColor: ColorTokens.gray2,
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNFloatingTextField(
+                    SNTextField(
                         placeholder: "Input text",
                         title: "Label text",
                         errorMessage: "Invalid text",
                         text: $title,
+                        type: .floatingOutlined,
                         isError: true,
                         trailingIcon: Image("ic_info")
                     )
@@ -114,25 +120,28 @@ struct TextFieldView: View {
                         Spacer()
                     }
                     
-                    SNPhoneTextField(
+                    SNTextField(
                         placeholder: "Phone number",
                         text: $phoneNumber,
+                        type: .phoneOutlined,
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNFilledPhoneTextField(
+                    SNTextField(
                         placeholder: "Phone number",
                         title: "Label text",
                         text: $phoneNumber,
+                        type: .phoneFilled,
                         fillColor: ColorTokens.gray2,
                         trailingIcon: Image("ic_info")
                     )
                     
-                    SNPhoneTextField(
+                    SNTextField(
                         placeholder: "Phone number",
                         title: "Label text",
                         errorMessage: "Invalid phone number",
                         text: $phoneNumber,
+                        type: .phoneOutlined,
                         isError: true,
                         trailingIcon: Image("ic_info")
                     )
