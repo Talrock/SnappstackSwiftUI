@@ -30,6 +30,10 @@ struct ContentView: View {
         Widget(
             titleLabel: "Segmented control",
             destinationView: AnyView(SegmentedControlView())
+        ),
+        Widget(
+            titleLabel: "Tabbar",
+            destinationView: AnyView(TabbarView())
         )
     ]
     
