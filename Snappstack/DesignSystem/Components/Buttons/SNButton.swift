@@ -12,6 +12,7 @@ public enum ButtonType {
     case secondary
     case tertiary
     case ghost
+    case plain
     case appleLogin
     case googleLogin
 }
@@ -48,7 +49,10 @@ extension SNButton {
 public struct SNButton: View {
     var title: String
     var type: ButtonType
+    var alignment: Alignment
     var size: ButtonSize = .large
+    var titleColor: Color?
+    var bgColor: Color?
     var isEnabled: Bool = true
     var isLoading: Bool = false
     var isFloating: Bool = false
@@ -59,7 +63,10 @@ public struct SNButton: View {
     public init(
         title: String,
         type: ButtonType = .primary,
+        alignment: Alignment = .center,
         size: ButtonSize = .large,
+        titleColor: Color? = nil,
+        bgColor: Color? = nil,
         isEnabled: Bool = true,
         isLoading: Bool = false,
         isFloating: Bool = false,
@@ -69,7 +76,10 @@ public struct SNButton: View {
     ) {
         self.title = title
         self.type = type
+        self.alignment = alignment
         self.size = size
+        self.titleColor = titleColor
+        self.bgColor = bgColor
         self.isEnabled = isEnabled
         self.isLoading = isLoading
         self.isFloating = isFloating
@@ -81,7 +91,9 @@ public struct SNButton: View {
     public var body: some View {
         Button(action: performAction) {
             HStack(spacing: Constants.Padding.iconSpacing) {
-                Rectangle().frame(width: (leadingIcon == nil && trailingIcon == nil) ? 15 : 0).foregroundColor(Color.clear)
+                if (leadingIcon == nil && trailingIcon == nil && type != .plain) {
+                    Rectangle().frame(width: 15).foregroundColor(Color.clear)
+                }
                 if isLoading {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: foregroundColor))
@@ -104,10 +116,12 @@ public struct SNButton: View {
                             .foregroundColor(foregroundColor)
                     }
                 }
-                Rectangle().frame(width: (leadingIcon == nil && trailingIcon == nil) ? 15 : 0).foregroundColor(Color.clear)
+                if (leadingIcon == nil && trailingIcon == nil && type != .plain) {
+                    Rectangle().frame(width: 15).foregroundColor(Color.clear)
+                }
             }
-            .frame(maxWidth: isFloating ? (title.isEmpty ? buttonHeight : nil) : .infinity)
-            .frame(height: type == .ghost ? Constants.Height.small : buttonHeight)
+            .frame(maxWidth: isFloating ? (title.isEmpty ? buttonHeight : nil) : .infinity, alignment: alignment)
+            .frame(height: (type == .ghost || type == .plain) ? Constants.Height.small : buttonHeight)
             .background(backgroundColor)
             .cornerRadius(isFloating ? buttonHeight/2 : RadiusTokens.md)
             .opacity(isEnabled ? OpacityTokens.opacity100 : OpacityTokens.opacity50)
@@ -144,28 +158,36 @@ public struct SNButton: View {
     }
     
     private var backgroundColor: Color {
-        switch type {
-        case .primary:
-            return ColorTokens.accent
-        case .secondary, .googleLogin:
-            return ColorTokens.fillSecondary
-        case .tertiary:
-            return ColorTokens.fill0
-        case .ghost:
-            return Color.clear
-        case .appleLogin:
-            return ColorTokens.textPrimary
+        if let color  = bgColor {
+            return color
+        } else {
+            switch type {
+            case .primary:
+                return ColorTokens.accent
+            case .secondary, .googleLogin:
+                return ColorTokens.fillSecondary
+            case .tertiary:
+                return ColorTokens.fill0
+            case .ghost, .plain:
+                return Color.clear
+            case .appleLogin:
+                return ColorTokens.textPrimary
+            }
         }
     }
     
     private var foregroundColor: Color {
-        switch type {
-        case .primary:
-            return ColorTokens.white
-        case .secondary, .tertiary, .ghost, .googleLogin:
-            return ColorTokens.textPrimary
-        case .appleLogin:
-            return ColorTokens.gray0
+        if let color  = titleColor {
+            return color
+        } else {
+            switch type {
+            case .primary:
+                return ColorTokens.white
+            case .secondary, .tertiary, .ghost, .googleLogin, .plain:
+                return ColorTokens.textPrimary
+            case .appleLogin:
+                return ColorTokens.gray0
+            }
         }
     }
     

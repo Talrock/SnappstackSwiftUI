@@ -1,5 +1,5 @@
 //
-//  TabbarView.swift
+//  TabBarView.swift
 //  SnappstackExample
 //
 //  Created by Mostafizur Rahman on 17/2/25.
@@ -8,13 +8,13 @@
 import SwiftUI
 import Snappstack
 
-struct TabbarView: View {
+struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     
     var body: some View {
         ScrollView {
             VStack(spacing: SpacingTokens.xl) {
-                SNTabbar(
+                SNTabBar(
                     items: [
                         SNTabBarItem(
                             title: "Home",
@@ -48,7 +48,7 @@ struct TabbarView: View {
                     selectedColor: ColorTokens.textPrimary
                 )
                 
-                SNTabbar(
+                SNTabBar(
                     items: [
                         SNTabBarItem(
                             title: "Home",
@@ -82,7 +82,7 @@ struct TabbarView: View {
                     selectedColor: ColorTokens.textPrimary
                 )
                 
-                SNTabbar(
+                SNTabBar(
                     items: [
                         SNTabBarItem(
                             title: "Home",
@@ -111,7 +111,7 @@ struct TabbarView: View {
                     selectedColor: ColorTokens.textPrimary
                 )
                 
-                SNTabbar(
+                SNTabBar(
                     items: [
                         SNTabBarItem(
                             title: "Home",
@@ -139,7 +139,7 @@ struct TabbarView: View {
                     selectedColor: ColorTokens.textPrimary
                 )
                 
-                SNTabbar(
+                SNTabBar(
                     items: [
                         SNTabBarItem(
                             icon: Image("ic_home"),
@@ -168,7 +168,7 @@ struct TabbarView: View {
                     selectedColor: ColorTokens.textPrimary
                 )
                 
-                SNTabbar(
+                SNTabBar(
                     items: [
                         SNTabBarItem(
                             icon: Image("ic_home"),
@@ -202,8 +202,8 @@ struct TabbarView: View {
     }
 }
 
-struct TabbarView_Previews: PreviewProvider {
+struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabbarView()
+        TabBarView()
     }
 }

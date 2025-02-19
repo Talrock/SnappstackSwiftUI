@@ -110,6 +110,7 @@ struct ButtonView: View {
                     SNButton(
                         title: "Secondary L",
                         type: .secondary,
+                        trailingIcon: Image("ic_right"),
                         action: {}
                     )
                     

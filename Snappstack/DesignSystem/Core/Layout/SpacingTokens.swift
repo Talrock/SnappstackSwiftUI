@@ -47,6 +47,6 @@ public struct SpacingTokens {
     /// Screen edge margin
     public static let screenEdge: CGFloat = 16
     
-    /// Tabbar height
-    public static let tabbar: CGFloat = 49
+    /// TabBar height
+    public static let TabBar: CGFloat = 49
 }

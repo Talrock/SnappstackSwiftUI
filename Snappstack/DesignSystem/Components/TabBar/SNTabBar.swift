@@ -1,5 +1,5 @@
 //
-//  SNTabbar.swift
+//  SNTabBar.swift
 //  Snappstack
 //
 //  Created by Mostafizur Rahman on 17/2/25.
@@ -53,7 +53,7 @@ struct lineView: View {
     }
 }
 
-public struct SNTabbar: View {
+public struct SNTabBar: View {
     let items: [SNTabBarItem]
     let linePosition: LinePosition
     @Binding var selectedIndex: Int
@@ -84,11 +84,11 @@ public struct SNTabbar: View {
                             VStack(spacing: SpacingTokens.micro) {
                                 (selectedIndex == index ? (items[index].selectedIcon ?? items[index].icon) : items[index].icon)
                                     .font(FontTokens.caption1.font)
-                                    .foregroundColor(selectedIndex == index ? selectedColor : ColorTokens.gray3)
+                                    .foregroundColor(selectedIndex == index ? selectedColor : ColorTokens.gray4)
                                 
                                 if let title = items[index].title {
                                     Text(title)
-                                        .foregroundColor(selectedIndex == index ? selectedColor : ColorTokens.gray3)
+                                        .foregroundColor(selectedIndex == index ? selectedColor : ColorTokens.gray4)
                                         .font(FontTokens.caption1.font)
                                 }
                             }
@@ -98,7 +98,7 @@ public struct SNTabbar: View {
                             BadgeView(count: badge).offset(x: SpacingTokens.md, y: 0)
                         }
                     }
-                    .frame(height: SpacingTokens.tabbar)
+                    .frame(height: SpacingTokens.TabBar)
                     
                 }
                 .frame(maxWidth: .infinity)

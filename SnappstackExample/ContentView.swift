@@ -28,12 +28,16 @@ struct ContentView: View {
             destinationView: AnyView(TextFieldView())
         ),
         Widget(
-            titleLabel: "Segmented control",
+            titleLabel: "Segmented Controls",
             destinationView: AnyView(SegmentedControlView())
         ),
         Widget(
-            titleLabel: "Tabbar",
-            destinationView: AnyView(TabbarView())
+            titleLabel: "Tab Bars",
+            destinationView: AnyView(TabBarView())
+        ),
+        Widget(
+            titleLabel: "Navigation Bars",
+            destinationView: AnyView(NavigationBarView())
         )
     ]
     
