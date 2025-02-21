@@ -98,7 +98,7 @@ public struct SNTabBar: View {
                             BadgeView(count: badge).offset(x: SpacingTokens.md, y: 0)
                         }
                     }
-                    .frame(height: SpacingTokens.TabBar)
+                    .frame(height: SpacingTokens.tabBar)
                     
                 }
                 .frame(maxWidth: .infinity)

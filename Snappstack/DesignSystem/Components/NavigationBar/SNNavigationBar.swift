@@ -36,7 +36,7 @@ public struct SNNavigationBar: View {
                     rightButtons[index]
                 }
             }
-            VStack(alignment: .center, spacing: 2) {
+            VStack(alignment: .center, spacing: SpacingTokens.micro) {
                 Text(title)
                     .font(FontTokens.headline.font)
                     .foregroundColor(ColorTokens.textPrimary)
@@ -50,7 +50,3 @@ public struct SNNavigationBar: View {
         .padding()
     }
 }
-
-
-//        .background(Color.white)
-//        .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)

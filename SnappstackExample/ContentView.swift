@@ -38,6 +38,10 @@ struct ContentView: View {
         Widget(
             titleLabel: "Navigation Bars",
             destinationView: AnyView(NavigationBarView())
+        ),
+        Widget(
+            titleLabel: "Search Bars",
+            destinationView: AnyView(SearchBarView())
         )
     ]
     
