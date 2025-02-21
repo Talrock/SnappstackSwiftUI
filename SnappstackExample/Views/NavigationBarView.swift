@@ -13,84 +13,130 @@ struct NavigationBarView: View {
         ScrollView {
             VStack(spacing: SpacingTokens.xl) {
                 SNNavigationBar(title: "Title",
-                                leftButton: SNButton(
-                                    title: "",
-                                    type: .plain,
-                                    alignment: .leading,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_back"),
-                                    action: {}
-                                ),
-                                rightButton: SNButton(
-                                    title: "",
-                                    type: .plain,
-                                    alignment: .trailing,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_menu"),
-                                    action: {}
-                                ))
+                                leftButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .leading,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_back"),
+                                        action: {}
+                                    )
+                                ],
+                                rightButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .trailing,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_plus_black"),
+                                        action: {}
+                                    ),
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .trailing,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_menu"),
+                                        action: {}
+                                    )
+                                ]
+                )
                 
                 SNNavigationBar(title: "Title",
                                 subtitle: "Subtitle",
-                                leftButton: SNButton(
-                                    title: "",
-                                    type: .secondary,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_back_small"),
-                                    action: {}
-                                ),
-                                rightButton: SNButton(
-                                    title: "",
-                                    type: .secondary,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_menu_small"),
-                                    action: {}
-                                ))
+                                leftButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .secondary,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_back_small"),
+                                        action: {}
+                                    )
+                                ],
+                                rightButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .secondary,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_plus_small"),
+                                        action: {}
+                                    ),
+                                    SNButton(
+                                        title: "",
+                                        type: .secondary,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_menu_small"),
+                                        action: {}
+                                    )
+                                ]
+                )
                 
                 SNNavigationBar(title: "Title",
                                 subtitle: "Subtitle",
-                                leftButton: SNButton(
-                                    title: "",
-                                    type: .plain,
-                                    alignment: .leading,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_back"),
-                                    action: {}
-                                ),
-                                rightButton: SNButton(
-                                    title: "",
-                                    type: .plain,
-                                    alignment: .trailing,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_menu"),
-                                    action: {}
-                                ))
+                                leftButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .leading,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_back"),
+                                        action: {}
+                                    )
+                                ],
+                                rightButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .trailing,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_plus_black"),
+                                        action: {}
+                                    ),
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .trailing,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_menu"),
+                                        action: {}
+                                    )
+                                ]
+                )
                 SNNavigationBar(title: "Title",
                                 subtitle: "Subtitle",
-                                leftButton: SNButton(
-                                    title: "",
-                                    type: .plain,
-                                    alignment: .leading,
-                                    size: .small,
-                                    isFloating: true,
-                                    leadingIcon: Image("ic_back"),
-                                    action: {}
-                                ),
-                                rightButton: SNButton(
-                                    title: "Skip",
-                                    type: .plain,
-                                    alignment: .trailing,
-                                    size: .medium,
-                                    titleColor: ColorTokens.accent,
-                                    isFloating: true,
-                                    action: {}
-                                ))
+                                leftButtons: [
+                                    SNButton(
+                                        title: "",
+                                        type: .plain,
+                                        alignment: .leading,
+                                        size: .small,
+                                        isFloating: true,
+                                        leadingIcon: Image("ic_back"),
+                                        action: {}
+                                    )
+                                ],
+                                rightButtons: [
+                                    SNButton(
+                                        title: "Skip",
+                                        type: .plain,
+                                        alignment: .trailing,
+                                        size: .medium,
+                                        titleColor: ColorTokens.accent,
+                                        isFloating: true,
+                                        action: {}
+                                    )
+                                ]
+                )
             }
         }
     }

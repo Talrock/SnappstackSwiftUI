@@ -10,26 +10,32 @@ import SwiftUI
 public struct SNNavigationBar: View {
     let title: String
     let subtitle: String?
-    let leftButton: SNButton
-    let rightButton: SNButton
+    let leftButtons: [SNButton]
+    let rightButtons: [SNButton]
     
     public init(
         title: String,
         subtitle: String? = nil,
-        leftButton: SNButton,
-        rightButton: SNButton
+        leftButtons: [SNButton],
+        rightButtons: [SNButton]
     ) {
         self.title = title
         self.subtitle = subtitle
-        self.leftButton = leftButton
-        self.rightButton = rightButton
-        
+        self.leftButtons = leftButtons
+        self.rightButtons = rightButtons
     }
     
     public var body: some View {
-        HStack {
-            leftButton
-            Spacer()
+        ZStack {
+            HStack {
+                ForEach(leftButtons.indices, id: \.self) { index in
+                    leftButtons[index]
+                }
+                Spacer()
+                ForEach(rightButtons.indices, id: \.self) { index in
+                    rightButtons[index]
+                }
+            }
             VStack(alignment: .center, spacing: 2) {
                 Text(title)
                     .font(FontTokens.headline.font)
@@ -40,8 +46,6 @@ public struct SNNavigationBar: View {
                         .foregroundColor(ColorTokens.gray4)
                 }
             }
-            Spacer()
-            rightButton
         }
         .padding()
     }
