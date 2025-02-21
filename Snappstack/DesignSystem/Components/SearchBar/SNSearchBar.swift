@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct SNSearchBar: View {
     @Binding var searchText: String
+    var placeholderText: String = "Search"
     var leadingIcon: Image? = nil
     var trailingIcon: Image? = nil
     var enableClearButton: Bool = false
@@ -17,6 +18,7 @@ public struct SNSearchBar: View {
     @Binding var isSearching: Bool
     
     public init(searchText: Binding<String>,
+                placeholderText: String = "Search",
                 leadingIcon: Image? = nil,
                 trailingIcon: Image? = nil,
                 enableClearButton: Bool = false,
@@ -25,6 +27,7 @@ public struct SNSearchBar: View {
                 isSearching: Binding<Bool>) {
         
         self._searchText = searchText
+        self.placeholderText = placeholderText
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
         self.enableClearButton = enableClearButton
@@ -39,7 +42,7 @@ public struct SNSearchBar: View {
                 (leadingIcon != nil ? leadingIcon : Image(systemName: "magnifyingglass"))
                     .foregroundColor(ColorTokens.gray5)
                 
-                TextField("Search", text: $searchText, onEditingChanged: { isEditing in
+                TextField(placeholderText, text: $searchText, onEditingChanged: { isEditing in
                     withAnimation {
                         isSearching = isEditing || !searchText.isEmpty
                     }
